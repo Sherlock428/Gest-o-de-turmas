@@ -16,7 +16,7 @@ class Classes:
         print("Bem_vindo a turma")
 
         return new_student
-    
+
     def remove_student(self):
         
         for i, student in enumerate(self.students_list, start=1):
