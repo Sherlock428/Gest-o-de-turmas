@@ -3,7 +3,6 @@ from dataclasses import dataclass
 @dataclass
 class Student:
     name: str
-    classes: str
     grade_list: list
 
 
@@ -51,8 +50,4 @@ Desempenho: Bom desempenho
 
 
 
-student = Student(name="Mano", classes="Turma 01", grade_list=[])
 
-student.add_grade(3)
-print(student.calcule_avarage())
-student.generate_report()
