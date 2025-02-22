@@ -2,15 +2,17 @@ from dataclasses import dataclass
 
 @dataclass
 class Student:
+    id: int
     name: str
     grade_list: list
 
 
-    def add_grade(self, unit):
+    def add_grade(self):
 
+        type = input("Digite o tipo da nota: ")
+        unit = int(input(f"Qual a quantidade de unidades para notas em {type}: "))
         for _ in range(unit):
             
-            type = input("Digite o tipo da nota: ")
             value = float(input(f"Digite sua nota da Unidade {_ + 1}: "))
             while value > 10 or value < 0:
                 value = float(input(f"Digite sua nota da Unidade {_ + 1 }: "))

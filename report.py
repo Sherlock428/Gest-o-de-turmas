@@ -32,10 +32,11 @@ Turma: {self.classes.name_class if self.student in self.classes.students_list el
                 soma += v
             media = soma / len(value)
             print(value)
-            relatorio += f"- {type.upper()} Notas {value} :media = {media}\n"
+            relatorio += f"- {type.upper()} {value} :media = {media}\n"
 
         total_media = self.student.calcule_avarage()
-
+        
+        relatorio += f"\nMedia Final: {total_media:.2f}"
         # Classificação do desempenho
         if total_media >= 9:
             desempenho = "Excelente desempenho!"
@@ -51,10 +52,13 @@ Turma: {self.classes.name_class if self.student in self.classes.students_list el
 
         return relatorio
     
-aluno = Student(name="Mano", grade_list=[])
-turma = Classes(name_class="Turma 01", students_list=[aluno])
-relatorio = Report(student=aluno, classes=turma)
-aluno.add_grade(4)
-print(aluno)
-relatorio.generate_report()
-print(relatorio.generate_report())
+# aluno = Student(id=1, name="Mano", grade_list=[])
+# turma = Classes(name_class="Turma 01", students_list=[aluno])
+# turma01 = Classes(name_class="Turma 02", students_list=[aluno])
+# relatorio = Report(student=aluno, classes=turma)
+# aluno.add_grade()
+# aluno.add_grade()
+# aluno.add_grade()
+# print(aluno)
+# relatorio.generate_report()
+# print(relatorio.generate_report())
