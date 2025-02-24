@@ -7,7 +7,7 @@ class Classes:
     students_list: list
 
     def all_students(self):
-        for i, student in enumerate(self.students_list, start=1):
+        for student in self.students_list:
             notas = ", ".join(f"- {nota['type']}: {nota['value'] }" for nota in student.grade_list)
             print(f"""
 ID: [{student.id}]
@@ -16,6 +16,13 @@ Nome: {student.name}
 ========Notas========
 
 {notas if notas else "Nehum nota encontrada"}""")
+            
+        if len(self.students_list) <= 0:
+            print("Nenhum livro encontrado")
+        
+        
+
+        
     def add_student(self):
         name = input("Digite o nome do Aluno: ")
         id = len(self.students_list) + 1

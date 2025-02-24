@@ -13,6 +13,8 @@ def report(classe, student):
         student_select = student.grade_list[n - 1]
 
         new = Report(student=student_select, classes=classe)
+        new.generate_report()
+        
 def main():
 
     classe = Classes(name_class="Turma 01", students_list=[])
