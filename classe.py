@@ -7,15 +7,28 @@ class Classes:
     students_list: list
 
     def all_students(self):
+
         for student in self.students_list:
-            notas = ", ".join(f"- {nota['type']}: {nota['value'] }" for nota in student.grade_list)
+
+            notas_agrupadas = {}
+
+            for nota in student.grade_list:
+                type = nota["type"]
+                grade = nota["value"]
+
+                if type not in notas_agrupadas:
+                    notas_agrupadas[type] = []
+                
+                notas_agrupadas[type].append(grade)
+
+            notas = "\n".join(f"- {type}: {', '.join(map(str, grade)) }" for type, grade in notas_agrupadas.items())
             print(f"""
-ID: [{student.id}]
-Nome: {student.name}
-
-========Notas========
-
-{notas if notas else "Nehum nota encontrada"}""")
++{'-' * 28}+
+|ID: {'[' + str(student.id) + ']'.ljust(22)}|
+|Nome: {student.name.ljust(22)}|
++{'-' * 11}Notas{'-' * 12}+
+{notas if notas else "Nehum nota encontrada"}|
++{'-' * 28}+""")
             
         if len(self.students_list) <= 0:
             print("Nenhum livro encontrado")

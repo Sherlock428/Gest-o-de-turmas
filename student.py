@@ -4,6 +4,7 @@ from dataclasses import dataclass
 class Student:
     id: int
     name: str
+    code: int
     grade_list: list
 
 
@@ -31,24 +32,24 @@ class Student:
 
         return avarage
     
-    def generate_report(self):
+#     def generate_report(self):
         
-        print(f"""{'=' * 30}
-{'RELATORIO DE DESEMPENHO'.center(30)}
-{'=' * 30}
+#         print(f"""{'=' * 30}
+# {'RELATORIO DE DESEMPENHO'.center(30)}
+# {'=' * 30}
 
-Aluno: {self.name}
-Turma: {self.classes}
+# Aluno: {self.name}
+# Turma: {self.classes}
 
-Notas:
-- Provas: [{', '.join(str(grade['value']) for grade in self.grade_list if grade['type'] == 'Prova' )}]
-- Trabalhos: [{', '.join(str(grade['value']) for grade in self.grade_list if grade['type'] == 'Trabalho')}]
-- Atividades Extras: [{', '.join(str(grade['value']) for grade in self.grade_list if grade['type'] == 'Extra')}]
+# Notas:
+# - Provas: [{', '.join(str(grade['value']) for grade in self.grade_list if grade['type'] == 'Prova' )}]
+# - Trabalhos: [{', '.join(str(grade['value']) for grade in self.grade_list if grade['type'] == 'Trabalho')}]
+# - Atividades Extras: [{', '.join(str(grade['value']) for grade in self.grade_list if grade['type'] == 'Extra')}]
 
-Média Geral: {self.calcule_avarage():.2f}
-Desempenho: Bom desempenho
+# Média Geral: {self.calcule_avarage():.2f}
+# Desempenho: Bom desempenho
 
-{'=' * 30}""")
+# {'=' * 30}""")
 
 
 

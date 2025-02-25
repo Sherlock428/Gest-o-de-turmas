@@ -31,8 +31,9 @@ Turma: {self.classes.name_class if self.student in self.classes.students_list el
             for v in value:
                 soma += v
             media = soma / len(value)
-            print(value)
-            relatorio += f"- {type.upper()} {value} :media = {media}\n"
+            
+            notas_f = ", ".join(str(v) for v in value) 
+            relatorio += f"- {type.capitalize()} {notas_f } | Media = {media}\n"
 
         total_media = self.student.calcule_avarage()
         
