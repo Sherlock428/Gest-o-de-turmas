@@ -3,6 +3,8 @@ from classe import Classes
 from report import Report
 
 
+
+
 def report(classe):
 
     classe.all_students()
@@ -15,6 +17,10 @@ def report(classe):
         new_report = Report(student=student_select, classes=classe)
         print(new_report.generate_report())
         
+
+def ativity():
+    pass
+
 def main():
 
     classe = Classes(name_class="Turma 01", students_list=[Student(id=1, name="Mano", grade_list=[{"type": "Provas", "value": 10}, {"type": "Provas", "value": 9}, {"type": "Provas", "value": 8}, {"type": "Trabalhos", "value": 9}])])
@@ -41,6 +47,8 @@ def main():
                 classe.all_students()
             elif option == 4:
                 report(classe)
+            elif option == 5:
+                ativity()
             else:
                 return
         except (ValueError, TypeError) as e:
