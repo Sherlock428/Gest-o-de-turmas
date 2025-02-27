@@ -20,7 +20,7 @@ Turma: {self.classes.name_class if self.student in self.classes.students_list el
 """
 
         types_grade = {}
-        soma = 0
+        
         for grade in self.student.grade_list:
             if grade['type'] not in types_grade:
                 types_grade[grade['type']] = []

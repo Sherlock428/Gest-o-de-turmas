@@ -3,8 +3,6 @@ from classe import Classes
 from report import Report
 
 
-
-
 def report(classe):
 
     classe.all_students()
@@ -23,7 +21,7 @@ def ativity():
 
 def main():
 
-    classe = Classes(name_class="Turma 01", students_list=[Student(id=1, name="Mano", grade_list=[{"type": "Provas", "value": 10}, {"type": "Provas", "value": 9}, {"type": "Provas", "value": 8}, {"type": "Trabalhos", "value": 9}])])
+    classe = Classes(name_class="Turma 01", students_list=[Student(id=1, name="Mano", code=123, grade_list=[{"type": "Provas", "value": 10}, {"type": "Provas", "value": 9}, {"type": "Provas", "value": 8}, {"type": "Trabalhos", "value": 9}])])
     while True:
         print(f"""
 {'=' * 30}
