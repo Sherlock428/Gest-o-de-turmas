@@ -21,8 +21,12 @@ def main_student(student, classe):
             elif option == 2:
                 pass
             elif option == 3:
-                Report(student=student, classes=classe)
+                report = Report(student=student, classes=classe)
+                print(report.generate_report())
+
             else:
                 return
         except (ValueError, TypeError) as e:
             print(f"ERROR: Digite um valor válido {e}")
+
+

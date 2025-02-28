@@ -35,7 +35,7 @@ class Classes:
             self.students_list.pop(n - 1)
 
             print(f"O estudante {deleted_student.name} foi removido da turma")
-
+    
     def all_students(self):
 
         for student in self.students_list:

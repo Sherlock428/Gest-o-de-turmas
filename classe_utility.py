@@ -16,12 +16,25 @@ def report(classe):
         print(new_report.generate_report())
         
 
-def ativity():
-    pass
+def activity():
+    
+    print(f"""
+[1] Atividade Lembrete
+[2] Passar atividade Manualmente
+""")
+    
+    option = int(input("Escolha: "))
 
+    if option == 1:
+        description = input("Digite a descrição do lembrete: ")
+        date_delivery = input("")
+        ativity = {
+            "description": description,
+            "date_delivry": date_delivery
+        }
 def main():
 
-    classe = Classes(name_class="Turma 01", students_list=[Student(id=1, name="Mano", code=123, grade_list=[{"type": "Provas", "value": 10}, {"type": "Provas", "value": 9}, {"type": "Provas", "value": 8}, {"type": "Trabalhos", "value": 9}])])
+    classe = Classes(name_class="Turma 01", code_class=1111, students_list=[Student(id=1, name="Mano", code=123, task=[], grade_list=[{"type": "Provas", "value": 10}, {"type": "Provas", "value": 10}, {"type": "Provas", "value": 9}, {"type": "Trabalhos", "value": 9}])])
     while True:
         print(f"""
 {'=' * 30}

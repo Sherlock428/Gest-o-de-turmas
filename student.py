@@ -1,11 +1,12 @@
 from dataclasses import dataclass
-from classe import Classes
+
 
 @dataclass
 class Student:
     id: int
     name: str
     code: int
+    task: list
     grade_list: list
 
 
@@ -33,24 +34,21 @@ class Student:
 
         return avarage
     
-    def see_grade(self):
+    def display_grade(self):
         
-        notas_agrupadas = {}
-        media = 0
-        soma = 0
-        for nota in self.grade_list:       
-           
+        grouped_grade = {}
+        for grade in self.grade_list: 
 
-            if nota['type'] not in notas_agrupadas:
-                notas_agrupadas[nota['type']] = []
-            notas_agrupadas[nota['type']].append(nota['value'])
+            if grade['type'] not in grouped_grade:
+                grouped_grade[grade['type']] = []
+            grouped_grade[grade['type']].append(grade['value'])
         
-        for type, value in notas_agrupadas.items():
-            soma = 0
+        for type, value in grouped_grade.items():
+            sum = 0
             for v in value:
-                soma += v
-            media = soma / len(value)
-        grades = "\n".join(f"{type}: {', '.join(map(str, grade))}: Média: {media}" for type, grade in notas_agrupadas.items())
+                sum += v
+            media = sum / len(value)
+        grades = "\n".join(f"{type}: {', '.join(map(str, grade))}: Média: {media}" for type, grade in grouped_grade.items())
 
         print(f"""
 {'=' * 30}
