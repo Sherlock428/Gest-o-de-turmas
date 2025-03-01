@@ -16,7 +16,7 @@ def report(classe):
         print(new_report.generate_report())
         
 
-def activity():
+def activity(student):
     
     print(f"""
 [1] Atividade Lembrete
@@ -32,7 +32,9 @@ def activity():
             "description": description,
             "date_delivry": date_delivery
         }
-def main():
+
+        ativity.append(student.task)
+def main(student):
 
     classe = Classes(name_class="Turma 01", code_class=1111, students_list=[Student(id=1, name="Mano", code=123, task=[], grade_list=[{"type": "Provas", "value": 10}, {"type": "Provas", "value": 10}, {"type": "Provas", "value": 9}, {"type": "Trabalhos", "value": 9}])])
     while True:
@@ -59,7 +61,7 @@ def main():
             elif option == 4:
                 report(classe)
             elif option == 5:
-                ativity()
+                activity(student)
             else:
                 return
         except (ValueError, TypeError) as e:
