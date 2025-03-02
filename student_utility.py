@@ -17,7 +17,7 @@ def main_student(student, classe):
             option = int(input("Escolha: "))
 
             if option == 1:
-                student.see_grade()
+                student.display_grade()
             elif option == 2:
                 pass
             elif option == 3:
