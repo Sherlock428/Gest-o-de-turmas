@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+from datetime import datetime
 
 @dataclass
 class Student:
@@ -49,7 +49,7 @@ class Student:
                 sum += v
             media = sum / len(value)
         grades = "\n".join(f"{type}: {', '.join(map(str, grade))}: Média: {media}" for type, grade in grouped_grade.items())
-
+    
         print(f"""
 {'=' * 30}
 {'Notas e Médias'.center(30)}
@@ -60,8 +60,41 @@ class Student:
 Média Final: {self.calcule_avarage():.2f}
 """)
         
+    def lembrete_task(self):
+        
+        print(f"""
+Lembretes
 
+[1] Atividades/Lembretes
+[2] Avalição Extra""")
+        
+        option = int(input("Escolha: "))
 
+        if option == 1:
+            task_lembrete = list(filter(lambda t: t['type'] == "task", self.task))
+            print(task_lembrete)
+            for i, task in enumerate(task_lembrete, start=1):
+                date_formated = datetime.strftime(task['date_delivery'], "%d/%m/%Y")
+                if datetime.now() > task['date_delivery'] and task['status'] == "Pendente":
+                    task['status'] = "Não Concluido"
+
+                print(f"""
+ID: [{i}]
+Descrição: {task['description']}
+Prazo: {date_formated}
+Status: {task['status']}
+""")
+
+            n = int(input("Marcar como Concluida: [ID] Retornar [0]: "))
+
+            if 1 <= n <= len(task_lembrete):
+                task_select = task_lembrete[n - 1]
+                task_select['status'] = "Concluida"
+                print(f"{task_select['description']} Foi Marcada com Concluida: ")
+
+            elif n == 0:
+                print("Voltando...")
+                return
 #     def generate_report(self):
         
 #         print(f"""{'=' * 30}
